@@ -2380,36 +2380,6 @@ FHEMAccessory.prototype = {
     }
 
     this.log.info('query: ' + mapping.characteristic_type + ' for ' + mapping.informId);
-    var value = mapping.cached;
-    if( typeof mapping === 'object' && value !== undefined ) {
-      var defined = undefined;
-      if( mapping.homekit2name !== undefined ) {
-        defined = mapping.homekit2name[value];
-        if( defined === undefined )
-          defined = '???';
-      }
-
-      mapping.log.info('  cached: ' + value + ' (' + 'as '+typeof(value) + (defined?'; means '+defined:'') + '\')');
-
-      if( callback !== undefined )
-        callback( undefined, value );
-      return value;
-
-    } else {
-      /*this.log.info('not cached; query: ' + mapping.informId);
-
-      var value = FHEM_cached[mapping.informId];
-      value = FHEM_reading2homekit(mapping, value);
-
-      if( value !== undefined ) {
-        this.log.info('  cached: ' + value);
-        if( callback !== undefined )
-          callback( undefined, value );
-        return value;
-
-      } else*/
-        this.log.info('  not cached' );
-    }
 
     var cmd = '{ReadingsVal("'+device+'","'+reading+'","")}';
 
