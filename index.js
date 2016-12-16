@@ -2228,9 +2228,9 @@ FHEMAccessory.prototype = {
       this.delayed_timers = {};
 
     if( typeof delay !== 'numeric' )
-      delay = 1000;
-    if( delay < 500 )
-      delay = 500;
+      delay = 100;
+    if( delay < 50 )
+      delay = 50;
 
     var timer = this.delayed_timers[mapping];
     if( timer ) {
